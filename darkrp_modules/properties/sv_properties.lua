@@ -153,9 +153,13 @@ function Properties.Functions.BuyProperty(ply, propID)
 	if Properties.PropertyOwners[propID] == nil then
 		//Its available
 		//check their money
-		DarkRP.notify(ply, 0, 4, "You bought "..Properties.PropertyDoors[propID].name.." for $"..Properties.PropertyDoors[propID].price)
-		ply:addMoney(-Properties.PropertyDoors[propID].price)
-		Properties.Functions.OwnPropertyByNum(ply, propID)
+		if( ply:canAfford( Properties.PropertyDoors[propID].price ) ) then
+			DarkRP.notify(ply, 0, 4, "You bought "..Properties.PropertyDoors[propID].name.." for $"..Properties.PropertyDoors[propID].price)
+			ply:addMoney(-Properties.PropertyDoors[propID].price)
+			Properties.Functions.OwnPropertyByNum(ply, propID)
+		else
+			DarkRP.notify(ply, 0, 4, "You can't afford this property.")
+		end
 	elseif Properties.PropertyOwners[propID] == ply then
 		//They already own it
 		DarkRP.notify(ply, 0, 4, "You already own this.")
@@ -260,7 +264,7 @@ hook.Add( "playerSellDoor", "propertiesDisallowSell", function(ply, ent, propert
 	if propertiesSell == nil then propertiesSell = false end
 	local doorID = ent:doorIndex()
 	if DoorIDtoPropertyID(doorID) != nil then
-		return propertiesSell, "You must sell this door to a property agent!", true
+		return propertiesSell, "You must sell this door to a property agent!"
 	end
 end)
 

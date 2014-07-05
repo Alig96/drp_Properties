@@ -25,7 +25,7 @@ end
 
 //AddProperty("Tides Hotel Room 1", 100, {1362, 1363})
 
-function AddProperty(name, price, doorIDtbl)
+function AddProperty(name, price, doorIDtbl, posestabl)
 	if name == nil then 
 		print("[Properties] Error: Missing Name on AddProperty function!") 
 		return 
@@ -34,9 +34,14 @@ function AddProperty(name, price, doorIDtbl)
 		print("[Properties] Error: Missing price for "..name.." on AddProperty function!") 
 		return 
 	end
-	if price == nil then 
+	if doorIDtbl == nil then 
 		print("[Properties] Error: Missing door data table for "..name.." on AddProperty function!") 
 		return 
+	end
+	posestabl = posestabl or nil
+	if posestabl == nil then 
+		print("[Properties] Error: Missing preview poses table for "..name.." on AddProperty function! It's not necessary but it's better to add one") 
+		//return 
 	end
 	//Check the table for valid doors
 //	for k,v in pairs(doorIDtbl) do
@@ -46,7 +51,7 @@ function AddProperty(name, price, doorIDtbl)
 //		end
 //	end
 	//If it passes all the tests
-	local id = table.insert(Properties.PropertyDoors, { ["price"] = price, ["name"] = name})
+	local id = table.insert(Properties.PropertyDoors, { ["price"] = price, ["name"] = name, ["poses"] = posestabl})
 	Properties.DoorLookUp[id] = doorIDtbl
 	print("[Properties] Success! "..name.." has been created with a ID: "..id)
 end
