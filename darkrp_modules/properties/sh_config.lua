@@ -43,10 +43,11 @@ Properties.PropertyButtonOutline = Color(255,255,255,255)
 
 
 
-/////////////////////////Config\\\\\\\\\\\\\\\\\\\\\\\\\
-//Map rp_evocity_v33x configuration finished by ds2198.\\
-//This took me a long time.. You're welcome.\\\\\\\\\\\\\\
-//Few doors are not configured such as the bank.\\\\\\\\\\\
+/////////////////////////Config\\\\\\\\\\\\\\\\\\\\\\\\\\
+//Map rp_evocity_v33x configuration finished by ds2198.\\\
+//Map rp_evocity_v33x configuration modified by AirBlack.\\
+//This took me a long time.. You're welcome.\\\\\\\\\\\\\\\\
+//Few doors are not configured such as the bank.\\\\\\\\\\\\\
 
 Properties.PropertyDoors[1] = { ["price"] = 200, ["name"] = "Tides Hotel Room 1", ["poses"] = {{pos = Vector(-4404.562012, -5097.754395, 311.723480), ang = Angle(21.507622, 41.077198, 0.000000)}, {pos = Vector(-4089.926270, -5097.647949, 319.979675), ang = Angle(13.520012 ,132.429581 ,0.000000)}, {pos = Vector(-4401.061523, -4689.803223, 315.190979), ang = Angle(26.940025, -40.575134, 0.000000)}}}
 Properties.DoorLookUp[1] = {2261, 2292}
